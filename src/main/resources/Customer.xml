@@ -10,7 +10,7 @@
     <result property = "zip" column = "ZIP"/>
     <result property = "name" column = "NAME"/>
     <result property = "addressline1" column = "ADRESSLINE1"/>
-    <result property = "adressline2" column = "ADDRESSLINE2"/>
+    <result property = "addressline2" column = "ADDRESSLINE2"/>
     <result property = "city" column = "CITY"/>
     <result property = "state" column = "STATE"/>
     <result property = "phone" column = "PHONE"/>
