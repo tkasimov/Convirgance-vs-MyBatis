@@ -41,25 +41,25 @@ public class ConvirganceVsMyBatis
         try (CSVPrinter printer = new CSVPrinter(new FileWriter("mybatis-example.csv"), CSVFormat.DEFAULT))
         {
             // header
-            printer.printRecord("Customer_id", "Discount_code", "Zip", "Name", 
-            "Addressline1", "Addressline2", "City", "State", "Phone", "Fax", 
-            "Email", "Credit_limit");
+            printer.printRecord("CUSTOMER_ID", "DISCOUNT_CODE", "ZIP", "NAME", 
+            "ADDRESSLINE1", "ADDRESSLINE2", "CITY", "STATE", "PHONE", "FAX", 
+            "EMAIL", "CREDIT_LIMIT");
             // customers
             for (Customer customer : customers)
             {
                 Object[] data = 
                 {
-                    String.valueOf(customer.getCustomer_id()), 
-                    customer.getDiscount_code(), 
+                    String.valueOf(customer.getCustomerID()), 
+                    customer.getDiscountCode(), 
                     customer.getName(), 
-                    customer.getAddressline1(),
-                    customer.getAddressline2(),
+                    customer.getAddressLine1(),
+                    customer.getAddressLine2(),
                     customer.getCity(),
                     customer.getState(),
                     customer.getPhone(),
                     customer.getFax(), 
                     customer.getEmail(),
-                    customer.getCredit_limit() 
+                    customer.getCreditLimit() 
                 };
                 printer.printRecord(data);   
             }
@@ -70,7 +70,7 @@ public class ConvirganceVsMyBatis
         }
         
        
-        //export to JSON
+        //export to JSON usong Gson
         try (FileWriter writer = new FileWriter("mybatis-example.json"))
         {
             Gson gson = new Gson();

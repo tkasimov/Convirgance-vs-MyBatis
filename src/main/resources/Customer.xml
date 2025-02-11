@@ -5,17 +5,17 @@
    SELECT * FROM CUSTOMER 
   </select>
   <resultMap id = "result" type = "com.mycompany.convirgance.vs.mybatis.Customer">
-    <result property = "customer_id" column = "CUSTOMER_ID"/>
-    <result property = "discount_code" column = "DISCOUNT_CODE"/>
+    <result property = "customerID" column = "CUSTOMER_ID"/>
+    <result property = "discountCode" column = "DISCOUNT_CODE"/>
     <result property = "zip" column = "ZIP"/>
     <result property = "name" column = "NAME"/>
-    <result property = "addressline1" column = "ADRESSLINE1"/>
-    <result property = "addressline2" column = "ADDRESSLINE2"/>
+    <result property = "addressLine1" column = "ADRESSLINE1"/>
+    <result property = "addressLine2" column = "ADDRESSLINE2"/>
     <result property = "city" column = "CITY"/>
     <result property = "state" column = "STATE"/>
     <result property = "phone" column = "PHONE"/>
     <result property = "fax" column = "FAX"/>
     <result property = "email" column = "EMAIL"/>
-    <result property = "credit_limit" column = "CREDIT_LIMIT"/>
+    <result property = "creditLimit" column = "CREDIT_LIMIT"/>
   </resultMap>
 </mapper>

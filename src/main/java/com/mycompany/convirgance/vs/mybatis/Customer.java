@@ -11,18 +11,18 @@ package com.mycompany.convirgance.vs.mybatis;
  */
 public class Customer
 {
-    private int customer_id;
-    private String discount_code;
+    private int customerID;
+    private String discountCode;
     private String zip;
     private String name;
-    private String addressline1;
-    private String addressline2;
+    private String addressLine1;
+    private String addressLine2;
     private String city;
     private String state;
     private String phone;
     private String fax;
     private String email;
-    private int credit_limit;
+    private int creditLimit;
     
     //Constructor
     public Customer(int customer_id, String discount_code, String zip, 
@@ -30,40 +30,40 @@ public class Customer
             String city, String state, String phone, String fax, String email,
             int credit_limit)
     {
-        this.customer_id = customer_id;
-        this.discount_code = discount_code;
+        this.customerID = customer_id;
+        this.discountCode = discount_code;
         this.zip = zip;
         this.name = name;
-        this.addressline1 = addressline1;
-        this.addressline2 = addressline2;
+        this.addressLine1 = addressline1;
+        this.addressLine2 = addressline2;
         this.city = city;
         this.state = state;
         this.phone = phone;
         this.fax = fax;
         this.email = email;
-        this.credit_limit = credit_limit;
+        this.creditLimit = credit_limit;
     }
     
     // Getters and Setters
 
-    public int getCustomer_id() 
+    public int getCustomerID() 
     {
-        return customer_id;
+        return customerID;
     }
 
-    public void setCustomer_id(int customer_id) 
+    public void setCustomerID(int customer_id) 
     {
-        this.customer_id = customer_id;
+        this.customerID = customer_id;
     }
 
-    public String getDiscount_code() 
+    public String getDiscountCode() 
     {
-        return discount_code;
+        return discountCode;
     }
 
-    public void setDiscount_code(String discount_code) 
+    public void setDiscountCode(String discount_code) 
     {
-        this.discount_code = discount_code;
+        this.discountCode = discount_code;
     }
 
     public String getZip() 
@@ -86,24 +86,24 @@ public class Customer
         this.name = name;
     }
 
-    public String getAddressline1() 
+    public String getAddressLine1() 
     {
-        return addressline1;
+        return addressLine1;
     }
 
-    public void setAddressline1(String addressline1) 
+    public void setAddressLine1(String addressline1) 
     {
-        this.addressline1 = addressline1;
+        this.addressLine1 = addressline1;
     }
 
-    public String getAddressline2() 
+    public String getAddressLine2() 
     {
-        return addressline2;
+        return addressLine2;
     }
 
-    public void setAddressline2(String addressline2) 
+    public void setAddressLine2(String addressline2) 
     {
-        this.addressline2 = addressline2;
+        this.addressLine2 = addressline2;
     }
 
     public String getCity() 
@@ -156,13 +156,13 @@ public class Customer
         this.email = email;
     }
 
-    public int getCredit_limit() 
+    public int getCreditLimit() 
     {
-        return credit_limit;
+        return creditLimit;
     }
 
-    public void setCredit_limit(int credit_limit) 
+    public void setCreditLimit(int credit_limit) 
     {
-        this.credit_limit = credit_limit;
+        this.creditLimit = credit_limit;
     }
 }
