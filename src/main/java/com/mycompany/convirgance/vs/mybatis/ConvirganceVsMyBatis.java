@@ -80,7 +80,5 @@ public class ConvirganceVsMyBatis
         {
             System.out.println("Error: " + e.getMessage());
         }
-        
-        
     }
 }
