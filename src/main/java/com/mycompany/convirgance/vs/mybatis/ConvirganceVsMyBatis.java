@@ -5,6 +5,7 @@
 package com.mycompany.convirgance.vs.mybatis;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import java.io.FileWriter;
 import java.util.List;
 import java.io.IOException;
@@ -47,9 +48,8 @@ public class ConvirganceVsMyBatis
             // customers
             for (Customer customer : customers)
             {
-                Object[] data = 
-                {
-                    String.valueOf(customer.getCustomerID()), 
+                Object[] data = {
+                    customer.getCustomerID(), 
                     customer.getDiscountCode(), 
                     customer.getName(), 
                     customer.getAddressLine1(),
@@ -59,8 +59,7 @@ public class ConvirganceVsMyBatis
                     customer.getPhone(),
                     customer.getFax(), 
                     customer.getEmail(),
-                    customer.getCreditLimit() 
-                };
+                    customer.getCreditLimit()};
                 printer.printRecord(data);   
             }
         }
@@ -73,7 +72,10 @@ public class ConvirganceVsMyBatis
         //export to JSON usong Gson
         try (FileWriter writer = new FileWriter("mybatis-example.json"))
         {
-            Gson gson = new Gson();
+            Gson gson = new GsonBuilder()
+                    .setPrettyPrinting()
+                    .create();
+            
             gson.toJson(customers, writer);
         }
         catch (IOException e)
