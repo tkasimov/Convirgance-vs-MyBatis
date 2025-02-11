@@ -4,6 +4,7 @@
 
 package com.mycompany.convirgance.vs.mybatis;
 
+import com.google.gson.Gson;
 import java.io.FileWriter;
 import java.util.List;
 import java.io.IOException;
@@ -32,39 +33,54 @@ public class ConvirganceVsMyBatis
         SqlSession session = sessionFactory.openSession();
         // record customers
         List<Customer> customers = session.selectList("com.mycompany.convirgance.vs.mybatis.CustomerMapper.getAll");
-        
-        
-        //export to CSV
-        CSVPrinter printer = new CSVPrinter(new FileWriter("customer.csv"), CSVFormat.DEFAULT);
-        // header
-        printer.printRecord("Customer_id", "Discount_code", "Zip", "Name", 
-        "Addressline1", "Addressline2", "City", "State", "Phone", "Fax", 
-        "Email", "Credit_limit");
-        
-        for (Customer customer : customers)
-        {
-            Object[] data = 
-            {
-                String.valueOf(customer.getCustomer_id()), 
-                customer.getDiscount_code(), 
-                customer.getName(), 
-                customer.getAddressline1(),
-                customer.getAddressline2(),
-                customer.getCity(),
-                customer.getState(),
-                customer.getPhone(),
-                customer.getFax(), 
-                customer.getEmail(),
-                customer.getCredit_limit() 
-            };
-            printer.printRecord(data);   
-        }
-        printer.flush();
-        
-        //export to JSON
-        
-        
         // close a session
         session.close();
+        
+        
+        //export to CSV using apache    
+        try (CSVPrinter printer = new CSVPrinter(new FileWriter("mybatis-example.csv"), CSVFormat.DEFAULT))
+        {
+            // header
+            printer.printRecord("Customer_id", "Discount_code", "Zip", "Name", 
+            "Addressline1", "Addressline2", "City", "State", "Phone", "Fax", 
+            "Email", "Credit_limit");
+            // customers
+            for (Customer customer : customers)
+            {
+                Object[] data = 
+                {
+                    String.valueOf(customer.getCustomer_id()), 
+                    customer.getDiscount_code(), 
+                    customer.getName(), 
+                    customer.getAddressline1(),
+                    customer.getAddressline2(),
+                    customer.getCity(),
+                    customer.getState(),
+                    customer.getPhone(),
+                    customer.getFax(), 
+                    customer.getEmail(),
+                    customer.getCredit_limit() 
+                };
+                printer.printRecord(data);   
+            }
+        }
+        catch (IOException e)
+        {
+            System.out.println("Error: " + e.getMessage());
+        }
+        
+       
+        //export to JSON
+        try (FileWriter writer = new FileWriter("mybatis-example.json"))
+        {
+            Gson gson = new Gson();
+            gson.toJson(customers, writer);
+        }
+        catch (IOException e)
+        {
+            System.out.println("Error: " + e.getMessage());
+        }
+        
+        
     }
 }
